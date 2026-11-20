@@ -48,9 +48,9 @@ h1{font:800 clamp(32px,5vw,58px)/1.02 var(--display);margin:10px 0 14px;letter-s
 .tile:hover .pic,.tile:focus-visible .pic{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 30px -12px #000}
 .tile:focus-visible .pic{outline:2px solid var(--mustard);outline-offset:3px}
 .tile .num{position:absolute;left:8px;top:8px;background:rgba(15,16,20,.78);color:#fff;font:700 12px var(--text);padding:3px 7px;border-radius:4px;font-variant-numeric:tabular-nums}
-.tile .tsub{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 7px;background:linear-gradient(transparent,rgba(0,0,0,.82));display:flex;flex-direction:column;align-items:center;text-align:center;gap:1px}
-.tile .tsub p{margin:0;text-shadow:0 1px 3px #000;text-wrap:balance}
-.tile .tsub .ta{font:600 13px/1.4 var(--tamil);color:#fff}
+.tile .tsub{display:flex;flex-direction:column;gap:2px;padding-left:10px;border-left:2px solid var(--maroon)}
+.tile .tsub p{margin:0;text-wrap:pretty}
+.tile .tsub .ta{font:600 14px/1.45 var(--tamil);color:var(--fg)}
 .tile .tsub .en{font:500 12px/1.35 var(--text);color:#F4E9C8}
 .tile .cap{font-size:14px;color:var(--fg);font-weight:600}
 .tile .sub{font-size:13px;color:var(--muted)}
@@ -71,12 +71,13 @@ footer{color:var(--muted);font-size:13px}
 .ptop .pact{color:var(--fg);font-weight:600}
 .ptop .feelbadge{color:var(--mustard)}
 .ptop .sp{margin-left:auto}
+.pinfo{min-width:0;line-height:1.4}
 .ibtn{all:unset;cursor:pointer;color:var(--fg);width:38px;height:38px;display:grid;place-items:center;border-radius:50%}
 .ibtn:hover,.ibtn:focus-visible{background:#ffffff1a}
 .ibtn svg{width:20px;height:20px;fill:currentColor}
 .stage{position:relative;overflow:hidden;display:grid;place-items:center;min-height:0}
-.frame{position:absolute;inset:0;display:grid;place-items:center;padding:0 max(16px,env(safe-area-inset-left,0px))}
-.frame .box{position:relative;width:min(100%,calc((100vh - 190px)*16/9));aspect-ratio:16/9;overflow:hidden;border-radius:4px;box-shadow:0 30px 80px -20px #000;background:#000}
+.frame{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(12px,2.5vh,22px);padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
+.frame .box{position:relative;flex:none;max-width:100%;width:min(100%,calc((100vh - 330px)*16/9));width:min(100%,calc((100dvh - 330px)*16/9));aspect-ratio:16/9;overflow:hidden;border-radius:4px;box-shadow:0 30px 80px -20px #000;background:#000}
 .frame img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center}
 .frame.in{animation:pop .55s cubic-bezier(.2,.8,.2,1) both}
 .frame.out{animation:fade .45s ease both}
@@ -85,10 +86,10 @@ footer{color:var(--muted);font-size:13px}
 @keyframes kb1{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.13) translate(-2%,-1.5%)}}
 @keyframes kb2{from{transform:scale(1.14) translate(2%,1%)}to{transform:scale(1.03) translate(0,0)}}
 @keyframes kb3{from{transform:scale(1.04) translate(-2%,0)}to{transform:scale(1.12) translate(2%,-1%)}}
-.subs{position:absolute;left:0;right:0;bottom:14px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;padding:0 16px;pointer-events:none}
-.subs p{margin:0;text-shadow:0 2px 6px #000,0 0 2px #000;max-width:60ch}
-.subs .ta{font:600 clamp(16px,2.2vw,24px)/1.45 var(--tamil);color:#fff}
-.subs .en{font:500 clamp(13px,1.6vw,18px)/1.4 var(--text);color:#F4E9C8}
+.subs{flex:none;width:min(100%,68ch);min-height:6.2em;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;text-align:center;pointer-events:none}
+.subs p{margin:0;max-width:60ch;text-wrap:balance}
+.subs .ta{font:600 clamp(19px,2.4vw,28px)/1.5 var(--tamil);color:#fff}
+.subs .en{font:500 clamp(15px,1.7vw,20px)/1.45 var(--text);color:#F4E9C8}
 .subs.show p{animation:pop .5s .25s both}
 .pbot{padding:10px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:8px}
 .track{display:flex;gap:2px;height:6px;cursor:pointer}
@@ -127,7 +128,7 @@ footer{color:var(--muted);font-size:13px}
 
 <div class="player" id="player" hidden role="dialog" aria-modal="true" aria-label="Storyboard player">
   <div class="ptop">
-    <span class="pact" id="pAct"></span><span id="pShot"></span><span class="feelbadge" id="pFeel"></span>
+    <div class="pinfo"><span class="pact" id="pAct"></span> <span id="pShot"></span> <span class="feelbadge" id="pFeel"></span></div>
     <span class="sp"></span>
     <button class="ibtn" id="fsBtn" type="button" aria-label="Full screen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5v2H6v3zm10-5h6v5h-2V6h-4zM6 15v3h3v2H4v-5zm12 3v-3h2v5h-5v-2z"/></svg></button>
     <button class="ibtn" id="closeBtn" type="button" aria-label="Close player"><svg viewBox="0 0 24 24"><path d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6L19 6.4 17.6 5 12 10.6z"/></svg></button>
@@ -184,11 +185,11 @@ footer{color:var(--muted);font-size:13px}
         const ts = document.createElement('div'); ts.className = 'tsub';
         if (s.ta) { const a = document.createElement('p'); a.className = 'ta'; a.lang = 'ta'; a.textContent = s.ta; ts.append(a); }
         if (s.en) { const e = document.createElement('p'); e.className = 'en'; e.textContent = s.en; ts.append(e); }
-        pic.append(ts);
+        b._ts = ts;
       }
       const c = document.createElement('span'); c.className = 'cap'; c.textContent = s.feel;
       const su = document.createElement('span'); su.className = 'sub'; su.textContent = s.what;
-      b.append(pic, c, su);
+      b.append(pic); if (b._ts) b.append(b._ts); b.append(c, su);
       b.addEventListener('click', function(){ open(i, false); });
       g.append(b);
     });
@@ -221,7 +222,7 @@ footer{color:var(--muted);font-size:13px}
     const subs = document.createElement('div'); subs.className = 'subs show';
     if (s.ta) { const a = document.createElement('p'); a.className = 'ta'; a.lang = 'ta'; a.textContent = s.ta; subs.append(a); }
     if (s.en) { const e = document.createElement('p'); e.className = 'en'; e.textContent = s.en; subs.append(e); }
-    box.append(subs); f.append(box); stage.append(f);
+    f.append(box, subs); stage.append(f);
     $('pAct').textContent = 'Part ' + s.part + ' · ' + P[s.part].name;
     $('pShot').textContent = '· Shot ' + s.id;
     $('pFeel').textContent = '· ' + s.feel;
