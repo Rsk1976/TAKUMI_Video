@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Come Back to Your Roots · Sketch Storyboard</title>
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Inter:wght@400;500;600&family=Noto+Sans+Tamil:wght@500;600&display=swap">
+<style>
+/* Layout: a screening room. Dark charcoal ground so the warm paper sketches glow. Hero with Play, then a grid of sketches by act; the player is a full-screen overlay. Deliberately single dark look. */
+:root{
+  --bg:#15161A; --panel:#1E2026; --fg:#EEEAE2; --muted:#A39E94; --line:#2E3038;
+  --maroon:#B23A48; --mustard:#D9A441; --red:#E5232F;
+  --display:"Archivo","Segoe UI",system-ui,sans-serif; --text:"Inter","Segoe UI",system-ui,sans-serif; --tamil:"Noto Sans Tamil","Nirmala UI",sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--text);font-size:15px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-block:36px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:center}
+.eyebrow{font:600 12px var(--text);letter-spacing:.14em;text-transform:uppercase;color:var(--mustard)}
+h1{font:800 clamp(32px,5vw,58px)/1.02 var(--display);margin:10px 0 14px;letter-spacing:-.02em;text-wrap:balance}
+.log{font-size:17px;color:var(--fg);max-width:56ch;margin:0}
+.log b{color:var(--mustard);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
+.play{font:700 17px var(--display);background:var(--maroon);color:#fff;border:0;border-radius:999px;padding:14px 26px 14px 22px;cursor:pointer;display:inline-flex;gap:10px;align-items:center}
+.play svg{width:18px;height:18px;fill:#fff}
+.play:hover{filter:brightness(1.1)}
+.pace{display:flex;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px}
+.pace button{font:600 13px var(--text);background:transparent;color:var(--muted);border:0;border-radius:999px;padding:7px 12px;cursor:pointer}
+.pace button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.meta{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.heroimg{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 30px 60px -20px #000;transform:rotate(1.2deg);cursor:pointer;max-width:100%}
+.heroimg img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.act{display:flex;flex-direction:column;gap:14px}
+.act header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;border-top:1px solid var(--line);padding-top:16px}
+.act h2{font:800 22px var(--display);margin:0}
+.act .af{color:var(--mustard);font-size:15px}
+.act .an{font:700 12px var(--text);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.tile{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:8px;min-width:0}
+.tile .pic{position:relative;aspect-ratio:16/9;border-radius:5px;overflow:hidden;background:var(--panel);transition:transform .25s ease, box-shadow .25s ease}
+.tile img{width:100%;height:100%;object-fit:cover;display:block}
+.tile:hover .pic,.tile:focus-visible .pic{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 30px -12px #000}
+.tile:focus-visible .pic{outline:2px solid var(--mustard);outline-offset:3px}
+.tile .num{position:absolute;left:8px;top:8px;background:rgba(15,16,20,.78);color:#fff;font:700 12px var(--text);padding:3px 7px;border-radius:4px;font-variant-numeric:tabular-nums}
+.tile .tsub{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 7px;background:linear-gradient(transparent,rgba(0,0,0,.82));display:flex;flex-direction:column;align-items:center;text-align:center;gap:1px}
+.tile .tsub p{margin:0;text-shadow:0 1px 3px #000;text-wrap:balance}
+.tile .tsub .ta{font:600 13px/1.4 var(--tamil);color:#fff}
+.tile .tsub .en{font:500 12px/1.35 var(--text);color:#F4E9C8}
+.tile .cap{font-size:14px;color:var(--fg);font-weight:600}
+.tile .sub{font-size:13px;color:var(--muted)}
+.cardgfx{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;background:#1B2A4A;color:#fff;font-family:var(--display);text-align:center;padding:10px}
+.cardgfx.todo{background:#2A2C33;border:2px dashed #555}
+.cardgfx s{opacity:.65;text-decoration-color:var(--red)}
+.cardgfx b{font-size:1.25em;border-bottom:3px solid var(--red)}
+footer{color:var(--muted);font-size:13px}
+
+/* Player */
+.player{position:fixed;inset:0;z-index:50;background:#0B0B0D;display:grid;grid-template-rows:auto 1fr auto}
+.ptop{display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));color:var(--muted);font-size:13px}
+.ptop .pact{color:var(--fg);font-weight:600}
+.ptop .feelbadge{color:var(--mustard)}
+.ptop .sp{margin-left:auto}
+.ibtn{all:unset;cursor:pointer;color:var(--fg);width:38px;height:38px;display:grid;place-items:center;border-radius:50%}
+.ibtn:hover,.ibtn:focus-visible{background:#ffffff1a}
+.ibtn svg{width:20px;height:20px;fill:currentColor}
+.stage{position:relative;overflow:hidden;display:grid;place-items:center;min-height:0}
+.frame{position:absolute;inset:0;display:grid;place-items:center;padding:0 max(16px,env(safe-area-inset-left,0px))}
+.frame .box{position:relative;width:min(100%,calc((100vh - 190px)*16/9));aspect-ratio:16/9;overflow:hidden;border-radius:4px;box-shadow:0 30px 80px -20px #000;background:#000}
+.frame img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center}
+.frame.in{animation:pop .55s cubic-bezier(.2,.8,.2,1) both}
+.frame.out{animation:fade .45s ease both}
+@keyframes pop{from{opacity:0;transform:scale(.9) translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:1}to{opacity:0}}
+@keyframes kb1{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.13) translate(-2%,-1.5%)}}
+@keyframes kb2{from{transform:scale(1.14) translate(2%,1%)}to{transform:scale(1.03) translate(0,0)}}
+@keyframes kb3{from{transform:scale(1.04) translate(-2%,0)}to{transform:scale(1.12) translate(2%,-1%)}}
+.subs{position:absolute;left:0;right:0;bottom:14px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;padding:0 16px;pointer-events:none}
+.subs p{margin:0;text-shadow:0 2px 6px #000,0 0 2px #000;max-width:60ch}
+.subs .ta{font:600 clamp(16px,2.2vw,24px)/1.45 var(--tamil);color:#fff}
+.subs .en{font:500 clamp(13px,1.6vw,18px)/1.4 var(--text);color:#F4E9C8}
+.subs.show p{animation:pop .5s .25s both}
+.pbot{padding:10px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:8px}
+.track{display:flex;gap:2px;height:6px;cursor:pointer}
+.track i{display:block;height:100%;background:#ffffff26;border-radius:2px;position:relative;overflow:hidden}
+.track i b{position:absolute;inset:0 auto 0 0;width:0;background:var(--maroon)}
+.track i.done b{width:100%}
+.ctrls{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.ctrls .what{margin-left:10px;color:var(--fg);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.ctrls .tc{white-space:nowrap}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.heroimg{transform:none}.ctrls .what{display:none}}
+@media (prefers-reduced-motion:reduce){.frame.in,.frame.out,.subs.show p{animation:none}.frame img{animation:none!important}.tile .pic{transition:none}}
+.backlink{color:var(--muted);font-size:14px;text-decoration:none;align-self:flex-start}.backlink:hover{color:var(--fg)}
+</style>
+
+<div class="wrap" id="page">
+  <a class="backlink" href="../">← Both storyboards</a>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Takumi Motion Controls · Sketch storyboard · Story A</div>
+      <h1>Come Back to Your Roots</h1>
+      <p class="log">As a boy, Arun flew a toy plane over Tenkasi's paddy fields while Paati laughed. Years later he is a success in the city, <b>three hours from home</b>, missing every festival, every birthday, and the night she fell. Then the Takumi e-plane makes it <b>fifteen minutes</b>, and he chooses to build what brought him home.</p>
+      <div class="cta">
+        <button class="play" id="playBtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Play the storyboard</button>
+        <div class="pace" role="group" aria-label="Pace">
+          <button type="button" id="paceFilm" aria-pressed="true">Film pace</button>
+          <button type="button" id="paceSlow" aria-pressed="false">Slow ×2</button>
+        </div>
+      </div>
+      <p class="meta" id="metaLine"></p>
+    </div>
+    <div class="heroimg" id="heroImg" role="button" tabindex="0" aria-label="Play from the first shot"><img src="img/F1.jpg" alt="Little Arun runs along the paddy-field bund with a toy plane while Paati laughs"></div>
+  </section>
+  <div id="acts"></div>
+  <footer>Pencil sketches made in Google Nano Banana from Claude's prompts. Paati's maroon saree and the red stripe on the e-plane are the only colours, so the eye follows home and Takumi. Use ← → to step, Space to pause, Esc to close.</footer>
+</div>
+
+<div class="player" id="player" hidden role="dialog" aria-modal="true" aria-label="Storyboard player">
+  <div class="ptop">
+    <span class="pact" id="pAct"></span><span id="pShot"></span><span class="feelbadge" id="pFeel"></span>
+    <span class="sp"></span>
+    <button class="ibtn" id="fsBtn" type="button" aria-label="Full screen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5v2H6v3zm10-5h6v5h-2V6h-4zM6 15v3h3v2H4v-5zm12 3v-3h2v5h-5v-2z"/></svg></button>
+    <button class="ibtn" id="closeBtn" type="button" aria-label="Close player"><svg viewBox="0 0 24 24"><path d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6L19 6.4 17.6 5 12 10.6z"/></svg></button>
+  </div>
+  <div class="stage" id="stage"></div>
+  <div class="pbot">
+    <div class="track" id="track" aria-hidden="true"></div>
+    <div class="ctrls">
+      <button class="ibtn" id="prevBtn" type="button" aria-label="Previous shot"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zm3.5 7L18 5v14z"/></svg></button>
+      <button class="ibtn" id="ppBtn" type="button" aria-label="Pause"><svg viewBox="0 0 24 24" id="ppIcon"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button>
+      <button class="ibtn" id="nextBtn" type="button" aria-label="Next shot"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM6 5l8.5 7L6 19z"/></svg></button>
+      <span class="tc" id="tc"></span>
+      <span class="what" id="pWhat"></span>
+    </div>
+  </div>
+</div>
+
+<script id="data" type="application/json">{"parts": [{"id": "1", "name": "The dream starts at home", "feel": "Childhood joy, Paati's laughter"}, {"id": "2", "name": "Success, but far away", "feel": "Successful, respected… and alone"}, {"id": "3", "name": "Missing life", "feel": "Warmth, guilt, fear, helplessness"}, {"id": "4", "name": "The invitation", "feel": "Disbelief, then hope"}, {"id": "5", "name": "Home, every single day", "feel": "Relief and joy: 3 hours becomes 15 minutes"}, {"id": "6", "name": "He builds what brought him home", "feel": "Pride, purpose, fulfilment"}, {"id": "7", "name": "The invitation to you", "feel": "Come back"}], "shots": [{"id": "F1", "part": "1", "len": 3, "inten": 6, "feel": "Pure childhood joy at home", "what": "Flashback, 24 years ago. Little Arun (8) runs along the paddy-field bund holding up a white toy plane with two red propellers. Paati, younger, watches and laughs.", "cam": "Side-on, tracks right with the boy", "ta": "பாட்டி! பாருங்க, பறக்குது!", "en": "Paati! Look, it's flying!", "img": "img/F1.jpg", "start": 0.0}, {"id": "F2", "part": "1", "len": 2, "inten": 6, "feel": "His dream is born here", "what": "The toy plane in his small hand, flying against the golden sky. It match-cuts to the city towers.", "cam": "Low angle, looking up", "ta": "ஒரு நாள்… நிஜ விமானத்தையே பறக்க விடுவேன்.", "en": "One day… I'll fly a real one.", "img": "img/F2.jpg", "start": 3.0}, {"id": "01", "part": "2", "len": 2, "inten": 3, "feel": "Another early start, alone", "what": "6 AM in the city. The phone lights up on the bedside table; his hand switches the alarm off.", "cam": "Macro close-up, slow push-in", "ta": "இன்னொரு காலை. இன்னொரு அலாரம்.", "en": "Another morning. Another alarm.", "img": "img/01.jpg", "start": 5.0}, {"id": "02", "part": "2", "len": 3, "inten": 4, "feel": "He is good at this, and respected", "what": "Glass boardroom at Technopark, Thiruvananthapuram. Arun (from behind) presents; colleagues listen.", "cam": "Medium, static", "ta": "நான் வேலைக்காக ஊரை விட்டு வந்தேன். நல்ல வேலையும் கிடைச்சது.", "en": "I left home for my career. And I found a good one.", "img": "img/02.jpg", "start": 7.0}, {"id": "03", "part": "2", "len": 2, "inten": 3, "feel": "One face in a huge machine", "what": "He walks toward us on a busy platform, headphones on.", "cam": "Camera moves back as he walks", "ta": "இவ்ளோ பெரிய ஊர்… என் பேர் யாருக்கும் தெரியாது.", "en": "Such a big city… and no one knows my name.", "img": "img/03.jpg", "start": 10.0}, {"id": "04a", "part": "3", "len": 2.5, "inten": 4, "feel": "Working on a festival day, far from family", "what": "Pongal day. Office almost empty. Arun alone at his desk; the phone glows with a video call from home.", "cam": "Side view, slight push-in", "ta": "பொங்கல் அன்னைக்கும்… நான் ஆபீஸ்ல.", "en": "Even on Pongal… I'm at the office.", "img": "img/04a.jpg", "start": 12.0}, {"id": "04b", "part": "3", "len": 3.5, "inten": 6, "feel": "The warmth of home he is missing", "what": "On his phone: the family courtyard, the Pongal pot boiling over, kolam. Paati leans toward the screen, smiling.", "cam": "Inside a phone frame", "ta": "எப்போ வருவே ராசா?", "en": "When are you coming home, dear?", "img": "img/04b.jpg", "start": 14.5}, {"id": "05a", "part": "3", "len": 2.5, "inten": 7, "feel": "Guilt: time is slipping away", "what": "Close-up. His smile fades; his eyes glisten.", "cam": "Close-up, static", "ta": "ஒவ்வொரு வருஷமும்… \"அடுத்த வருஷம்\"னு சொன்னேன்.", "en": "Every year, I said… \"next year.\"", "img": "img/05a.jpg", "start": 18.0}, {"id": "M1", "part": "3", "len": 1.5, "inten": 7, "feel": "Another moment missed", "what": "On his phone: Paati's birthday. She lights a brass lamp beside a small cake; Amma claps.", "cam": "Inside a phone frame", "ta": "பாட்டியோட பிறந்தநாள். நான் ஸ்கிரீன்ல தான் பார்த்தேன்.", "en": "Paati's birthday. I watched it on a screen.", "img": "img/M1.jpg", "start": 20.5}, {"id": "M2", "part": "3", "len": 2, "inten": 8, "feel": "She misses him; he is only a small screen", "what": "His cousin's wedding. Paati sits apart holding the phone with his face on it; beside her, an empty chair with a garland kept for him.", "cam": "Inside a phone frame", "ta": "வீட்ல கல்யாணம். நான் அங்க இல்ல.", "en": "A wedding in the family. I wasn't there.", "img": "img/M2.jpg", "start": 22.0}, {"id": "H0", "part": "3", "len": 2, "inten": 9, "feel": "Panic: she has fallen", "what": "Night in the village house. Paati on the floor beside her tipped-over walker; Amma holds her and calls Arun.", "cam": "Low, static", "ta": "அருண்! சீக்கிரம் வா…", "en": "Arun! Come quickly…", "img": "img/H0.jpg", "start": 24.0}, {"id": "H1", "part": "3", "len": 3, "inten": 9, "feel": "Fear", "what": "2 AM. The phone rings. He jolts up in bed, phone to his ear, frozen.", "cam": "Medium close-up, static", "ta": "பாட்டி கீழே விழுந்துட்டாங்க…", "en": "Paati has fallen…", "img": "img/H1.jpg", "start": 26.0}, {"id": "D1", "part": "3", "len": 3, "inten": 9, "feel": "Helpless: she is three hours away", "what": "Night taxi over the ghat road, rain on the window, streetlights sliding over his anxious face. Graphic: city → home · 3 hours by road.", "cam": "Inside the car, side-on", "ta": "மூணு மணி நேரம்… அவங்களுக்கு நான் தேவைப்பட்டப்போ.", "en": "Three hours away… when she needed me most.", "img": "img/D1.jpg", "start": 29.0}, {"id": "05b", "part": "3", "len": 2.5, "inten": 8, "feel": "She is getting older, and he is not there", "what": "Paati, now on a walker, struggles to stand; Amma helps her up.", "cam": "Medium, static", "ta": "அவங்களுக்கு வயசாகுது… நான் இன்னும் தூரத்துல.", "en": "She is getting older… and I'm still far away.", "img": "img/05b.jpg", "start": 32.0}, {"id": "06", "part": "3", "len": 2, "inten": 4, "feel": "Back in the city, empty", "what": "Night. His apartment, alone on the sofa, scrolling.", "cam": "Wide, static", "ta": "மறுபடியும் சிட்டி. மறுபடியும் தனிமை.", "en": "Back to the city. Back to being alone.", "img": "img/06.jpg", "start": 34.5}, {"id": "07a", "part": "4", "len": 2, "inten": 4, "feel": "Something catches his eye", "what": "Over his shoulder: his thumb stops scrolling; he leans in.", "cam": "Over the shoulder, slow push-in", "ta": "இரு… இது என்ன?", "en": "Wait… what is this?", "img": "img/07a.jpg", "start": 36.5}, {"id": "07b", "part": "4", "len": 3, "inten": 6, "feel": "Surprise: they build this in my hometown", "what": "On his phone, a Takumi video: engineers fit a propeller to the e-plane in a Tenkasi hangar, the doors open to the paddy fields.", "cam": "Pans left with the plane", "ta": "தென்காசியில தயாரிச்சதா?!", "en": "Built in Tenkasi?!", "img": "img/07b.jpg", "start": 38.5}, {"id": "07c", "part": "4", "len": 3, "inten": 8, "feel": "Longing: someone like me already goes home every day", "what": "Same video: at dusk an engineer steps out of the e-plane in her village; her little daughter runs into her arms.", "cam": "Inside a phone frame", "ta": "அவங்க… தினமும் வீட்டுக்குப் பறந்து போறாங்களா?", "en": "She flies home… every day?", "img": "img/07c.jpg", "start": 41.5}, {"id": "08", "part": "4", "len": 3, "inten": 7, "feel": "Disbelief becomes hope", "what": "Close-up. His eyes widen, then a slow smile.", "cam": "Close-up, static", "ta": "வீட்டுக்கு… பதினைஞ்சு நிமிஷத்துலயா?", "en": "Home… in fifteen minutes?", "img": "img/08.jpg", "start": 44.5}, {"id": "08b", "part": "4", "len": 2.5, "inten": 8, "feel": "The old dream comes back", "what": "He takes his childhood toy plane down from the shelf and smiles at it.", "cam": "Medium, slow push-in", "ta": "சின்ன வயசுக் கனவு… இன்னும் இங்கேயே இருக்கு.", "en": "My childhood dream… still right here.", "img": "img/08b.jpg", "start": 47.5}, {"id": "E1", "part": "5", "len": 3, "inten": 7, "feel": "A new routine begins", "what": "6 PM at Technopark. Arun, laptop bag on his shoulder, walks to the waiting e-plane, canopy open.", "cam": "Three-quarter back view, slight push-in", "ta": "சாயங்காலம் ஆறு மணி. வேலை முடிஞ்சது. வீட்டுக்குப் போகலாம்.", "en": "6 PM. Work's done. Time to go home.", "img": "img/E1.jpg", "start": 50.0}, {"id": "E2", "part": "5", "len": 3, "inten": 9, "feel": "Flying home over the fields of his childhood", "what": "The e-plane flies over the same paddy fields as the flashback. A little boy on the bund lifts his toy plane toward it.", "cam": "Drone, pans right with the plane", "ta": "நான் முதல் விமானத்தைப் பறக்கவிட்ட அதே வயல்.", "en": "The same fields where I flew my first plane.", "img": "img/E2.jpg", "start": 53.0}, {"id": "E3", "part": "5", "len": 2.5, "inten": 8, "feel": "Home already", "what": "The e-plane touches down on a small village airstrip among palms.", "cam": "Side-on, static", "ta": "வீட்டுக்கு வந்தாச்சு. அதுக்குள்ள!", "en": "Home already!", "img": "img/E3.jpg", "start": 56.0}, {"id": "13", "part": "5", "len": 4, "inten": 10, "feel": "The emotional peak: home, and on time", "what": "On the veranda, Paati holds his face in her hands; their foreheads touch.", "cam": "Medium close-up, static", "ta": "இந்த முறை… \"அடுத்த வருஷம்\" இல்லை.", "en": "This time, there was no \"next year.\"", "img": "img/13.jpg", "start": 58.5}, {"id": "CARD", "part": "5", "len": 2.5, "inten": 8, "feel": "3 hours becomes 15 minutes", "what": "Graphic card: from anywhere → to your home · 3 hours by road · 15 minutes by e-plane.", "cam": "Card", "ta": "ஆபீஸ்லேருந்து வீட்டுக்கு… பதினைஞ்சு நிமிஷம். ஒவ்வொரு நாளும்.", "en": "Office to home… fifteen minutes. Every single day.", "img": null, "start": 62.5}, {"id": "12", "part": "5", "len": 2, "inten": 7, "feel": "Peace: waking up at home on a workday", "what": "Morning. From behind, he opens the wooden shutters onto the mist and the mountains.", "cam": "Medium, from inside", "ta": "வேலை நாள்லயும்… வீட்லயே விடியுது.", "en": "Even on a workday… I wake up at home.", "img": "img/12.jpg", "start": 65.0}, {"id": "J1", "part": "6", "len": 3, "inten": 8, "feel": "Surprise: someone wants him here", "what": "At the village airstrip the engineer from the video walks up and offers her hand.", "cam": "Medium two-shot", "ta": "உங்களை மாதிரி ஆட்கள் எங்களுக்கு வேணும். இனி ஏன் சிட்டிக்குப் பறக்கணும்?", "en": "We need people like you. Why fly back to the city at all?", "img": "img/J1.jpg", "start": 67.0}, {"id": "J2", "part": "6", "len": 2.5, "inten": 8, "feel": "Awe: nothing here is second-best", "what": "She shows him the Takumi lab: huge and bright, the e-plane on test stands, green fields through the glass.", "cam": "Wide, from behind", "ta": "உலகத்துல எந்த லேபுக்கும் இது குறைஞ்சது இல்ல.", "en": "As good as any lab in the world.", "img": "img/J2.jpg", "start": 70.0}, {"id": "14", "part": "6", "len": 2.5, "inten": 8, "feel": "Resolve: he will build it", "what": "He walks out of the family home with purpose.", "cam": "Tracks sideways with him", "ta": "என்னை வீட்டுக்குக் கொண்டு வந்ததை… இனி நானே உருவாக்குவேன்.", "en": "Now I'll build what brought me home.", "img": "img/14.jpg", "start": 72.5}, {"id": "15A", "part": "6", "len": 2.5, "inten": 8, "feel": "Awe: this is big", "what": "Aerial view of the huge, world-class Takumi campus: R&D centre, factory halls, runway, solar farm, the Ghats behind.", "cam": "Drone glides forward", "ta": "உலகத் தரம். இங்கேயே, தென்காசியில.", "en": "World-class. Right here in Tenkasi.", "img": "img/15A.jpg", "start": 75.0}, {"id": "15", "part": "6", "len": 2, "inten": 7, "feel": "He belongs here", "what": "Arun walks up the palm-lined avenue toward the R&D building.", "cam": "Follows behind him", "ta": "இது தான் என் இடம்.", "en": "This is where I belong.", "img": "img/15.jpg", "start": 77.5}, {"id": "16", "part": "6", "len": 2, "inten": 7, "feel": "Designing the future", "what": "Design studio. Priya points at a 3D model of the mobility scooter on the display; Raman nods.", "cam": "Medium, static", "ta": "எதிர்காலத்தை இங்கேயே வடிவமைக்கிறோம்.", "en": "We design the future right here.", "img": "img/16.jpg", "start": 79.5}, {"id": "17", "part": "6", "len": 2, "inten": 6, "feel": "Real engineering, by local hands", "what": "Macro. A probe touches the Takumi motor controller board.", "cam": "Macro, static", "ta": "ஒவ்வொரு போர்டும்… நம்ம கையால.", "en": "Every board… made by our own hands.", "img": "img/17.jpg", "start": 81.5}, {"id": "18", "part": "6", "len": 2, "inten": 7, "feel": "A smart factory, in Tenkasi", "what": "Autonomous robots (AMRs) glide through the factory hall carrying crates.", "cam": "Wide, static", "ta": "ஸ்மார்ட் ஃபேக்டரி. நம்ம ஊர்லயே.", "en": "A smart factory. In our own town.", "img": "img/18.jpg", "start": 83.5}, {"id": "20", "part": "6", "len": 2, "inten": 7, "feel": "Dignity for elders", "what": "An elderly man rides the Takumi mobility scooter up a ramp, smiling.", "cam": "Tracks right", "ta": "நம்ம பெரியவங்களுக்கு… ஒரு சுதந்திரம்.", "en": "Freedom… for our elders.", "img": "img/20.jpg", "start": 85.5}, {"id": "B09b", "part": "6", "len": 2, "inten": 7, "feel": "Care for elders", "what": "An elder walks home from the market; the Takumi follow-me robot carries her vegetables, a puppy trotting behind, children laughing.", "cam": "Tracks left", "ta": "நாங்க செய்யுற ரோபோ… பெரியவங்களுக்குத் துணையா.", "en": "The robots we make… walk our elders home.", "img": "img/B09b.jpg", "start": 87.5}, {"id": "B11", "part": "6", "len": 2, "inten": 6, "feel": "A cared-for hometown", "what": "Dusk. The Takumi cleaning robot sweeps the street past Paati's veranda and the kolam.", "cam": "Wide, static", "ta": "ஒவ்வொரு சாயங்காலமும்… சுத்தமான தெரு.", "en": "Clean streets, every evening.", "img": "img/B11.jpg", "start": 89.5}, {"id": "21", "part": "6", "len": 3.5, "inten": 9, "feel": "Pride: the hero moment", "what": "The Takumi e-plane takes off from the campus runway.", "cam": "Side-on, follows the takeoff", "ta": "சின்ன வயசுல நான் கனவு கண்ட விமானம்.", "en": "The plane I dreamed of as a boy.", "img": "img/21.jpg", "start": 91.5}, {"id": "22", "part": "6", "len": 2.5, "inten": 8, "feel": "Giving back", "what": "Arun teaches young local students at the training academy.", "cam": "Medium, static", "ta": "உலகத் தரமான தொழில்நுட்பம்… நம்ம ஊர்லயே.", "en": "World-class technology… right here at home.", "img": "img/22.jpg", "start": 95.0}, {"id": "B10", "part": "6", "len": 2, "inten": 8, "feel": "Paati, free again", "what": "Paati rides her Takumi scooter down the temple street to chat with her old friends.", "cam": "Tracks with her", "ta": "பாட்டி… மறுபடியும் தன் தோழிகளோட.", "en": "Paati… back with her friends.", "img": "img/B10.jpg", "start": 97.5}, {"id": "23", "part": "6", "len": 3.5, "inten": 10, "feel": "Joy: what he builds moves his own family", "what": "Paati rides the Takumi scooter, laughing; Arun walks beside her.", "cam": "Side-on, tracks with them", "ta": "நான் உருவாக்குற தொழில்நுட்பம்… என் குடும்பத்தையே நகர்த்துது.", "en": "The technology I build… moves my own family.", "img": "img/23.jpg", "start": 99.5}, {"id": "24", "part": "6", "len": 3, "inten": 9, "feel": "Career and home, both here", "what": "Golden hour. The e-plane flies over the campus and the temple town.", "cam": "Aerial, follows the plane", "ta": "வேலையும் இங்க. குடும்பமும் இங்க.", "en": "Career here. Family here.", "img": "img/24.jpg", "start": 103.0}, {"id": "24B", "part": "6", "len": 2, "inten": 9, "feel": "Fulfilment", "what": "Arun and the team look up at the sky. Arun smiles.", "cam": "Slow tilt up", "ta": "நான் என் வேர்களுக்குத் திரும்பி வந்தேன்.", "en": "I came back to my roots.", "img": "img/24B.jpg", "start": 106.0}, {"id": "25", "part": "7", "len": 3, "inten": 8, "feel": "The message", "what": "COME BACK TO YOUR ROOTS. YOUR FUTURE IS WAITING AT HOME. (with Tamil)", "cam": "Card", "ta": "உங்கள் வேர்களுக்குத் திரும்புங்கள். உங்கள் எதிர்காலம் வீட்டில் காத்திருக்கிறது.", "en": "Come back to your roots. Your future is waiting at home.", "img": "img/25.jpg", "start": 108.0}, {"id": "26", "part": "7", "len": 3, "inten": 7, "feel": "Who is calling", "what": "Takumi logo. “Your skills. Your hometown. Our shared mission.”", "cam": "Card", "ta": "உங்கள் திறமை. உங்கள் ஊர். நம்முடைய பொதுவான இலக்கு.", "en": "Your skills. Your hometown. Our shared mission.", "img": "img/26.jpg", "start": 111.0}], "total": 114.0}</script>
+<script>
+(function(){
+  const D = JSON.parse(document.getElementById('data').textContent);
+  const S = D.shots, P = {}; D.parts.forEach(function(p){ P[p.id] = p; });
+  const $ = function(id){ return document.getElementById(id); };
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let pace = 1, idx = 0, playing = false, timer = null, t0 = 0, elapsed = 0, raf = null;
+  function fmt(s){ s = Math.max(0, s); return Math.floor(s/60) + ':' + String(Math.floor(s%60)).padStart(2,'0'); }
+  $('metaLine').textContent = S.length + ' shots · ' + fmt(D.total) + ' at film pace · Tamil + English subtitle on every shot';
+
+  function todoHTML(s){ return '<div class="cardgfx todo"><span>Shot ' + s.id + '</span><b>Image to come</b><span style="font-size:.8em;opacity:.8;max-width:40ch">' + s.what.replace(/</g,'&lt;') + '</span></div>'; }
+  function cardHTML(){ return '<div class="cardgfx"><span>From anywhere → to your home</span><s>3 hours by road</s><b>15 minutes by e-plane</b></div>'; }
+
+  // grid
+  const acts = $('acts');
+  D.parts.forEach(function(p){
+    const list = S.map(function(s, i){ return [s, i]; }).filter(function(x){ return x[0].part === p.id; });
+    if (!list.length) return;
+    const sec = document.createElement('section'); sec.className = 'act';
+    const h = document.createElement('header');
+    h.innerHTML = '<span class="an">Part ' + p.id + '</span>';
+    const h2 = document.createElement('h2'); h2.textContent = p.name; h.append(h2);
+    const af = document.createElement('span'); af.className = 'af'; af.textContent = p.feel; h.append(af);
+    sec.append(h);
+    const g = document.createElement('div'); g.className = 'grid';
+    list.forEach(function(x){
+      const s = x[0], i = x[1];
+      const b = document.createElement('button'); b.className = 'tile'; b.type = 'button'; b.id = 'tile-' + s.id;
+      b.setAttribute('aria-label', 'Open shot ' + s.id + ': ' + s.feel);
+      const pic = document.createElement('div'); pic.className = 'pic';
+      if (s.img) { const im = document.createElement('img'); im.src = s.img; im.alt = s.what; im.loading = 'lazy'; pic.append(im); }
+      else pic.innerHTML = s.id === 'CARD' ? cardHTML() : todoHTML(s);
+      const n = document.createElement('span'); n.className = 'num'; n.textContent = s.id + ' · ' + fmt(s.start); pic.append(n);
+      if (s.ta || s.en) {
+        const ts = document.createElement('div'); ts.className = 'tsub';
+        if (s.ta) { const a = document.createElement('p'); a.className = 'ta'; a.lang = 'ta'; a.textContent = s.ta; ts.append(a); }
+        if (s.en) { const e = document.createElement('p'); e.className = 'en'; e.textContent = s.en; ts.append(e); }
+        pic.append(ts);
+      }
+      const c = document.createElement('span'); c.className = 'cap'; c.textContent = s.feel;
+      const su = document.createElement('span'); su.className = 'sub'; su.textContent = s.what;
+      b.append(pic, c, su);
+      b.addEventListener('click', function(){ open(i, false); });
+      g.append(b);
+    });
+    sec.append(g); acts.append(sec);
+  });
+
+  // track
+  const track = $('track');
+  S.forEach(function(s, i){
+    const seg = document.createElement('i'); seg.style.flex = s.len; seg.append(document.createElement('b'));
+    seg.title = s.id + ' · ' + s.feel;
+    seg.addEventListener('click', function(){ show(i, true); });
+    track.append(seg);
+  });
+
+  const stage = $('stage');
+  let kb = 0;
+  function show(i, animate){
+    idx = (i + S.length) % S.length;
+    const s = S[idx], dur = s.len * pace;
+    const old = stage.querySelector('.frame:not(.out)');
+    if (old) { old.classList.remove('in'); old.classList.add('out'); setTimeout(function(){ old.remove(); }, 460); }
+    const f = document.createElement('div'); f.className = 'frame in';
+    const box = document.createElement('div'); box.className = 'box';
+    if (s.img) {
+      const im = document.createElement('img'); im.src = s.img; im.alt = s.what;
+      if (!reduce) { kb = (kb % 3) + 1; im.style.animation = 'kb' + kb + ' ' + (dur + 0.6) + 's linear both'; im.style.animationPlayState = playing ? 'running' : 'paused'; }
+      box.append(im);
+    } else box.innerHTML = s.id === 'CARD' ? cardHTML() : todoHTML(s);
+    const subs = document.createElement('div'); subs.className = 'subs show';
+    if (s.ta) { const a = document.createElement('p'); a.className = 'ta'; a.lang = 'ta'; a.textContent = s.ta; subs.append(a); }
+    if (s.en) { const e = document.createElement('p'); e.className = 'en'; e.textContent = s.en; subs.append(e); }
+    box.append(subs); f.append(box); stage.append(f);
+    $('pAct').textContent = 'Part ' + s.part + ' · ' + P[s.part].name;
+    $('pShot').textContent = '· Shot ' + s.id;
+    $('pFeel').textContent = '· ' + s.feel;
+    $('pWhat').textContent = s.what;
+    Array.prototype.forEach.call(track.children, function(seg, k){ seg.classList.toggle('done', k < idx); seg.firstChild.style.width = k < idx ? '100%' : '0'; });
+    elapsed = 0; t0 = performance.now();
+    clearTimeout(timer);
+    if (playing) timer = setTimeout(next, dur * 1000);
+    tick();
+  }
+  function tick(){
+    cancelAnimationFrame(raf);
+    const s = S[idx], dur = s.len * pace;
+    const e = playing ? elapsed + (performance.now() - t0) / 1000 : elapsed;
+    track.children[idx].firstChild.style.width = Math.min(100, 100 * e / dur) + '%';
+    $('tc').textContent = fmt(s.start + Math.min(e / pace, s.len)) + ' / ' + fmt(D.total);
+    if (playing) raf = requestAnimationFrame(tick);
+  }
+  function next(){ if (idx === S.length - 1) { setPlaying(false); return; } show(idx + 1, true); }
+  function setPlaying(v){
+    if (v === playing) return;
+    const s = S[idx], dur = s.len * pace;
+    if (v) { t0 = performance.now(); timer = setTimeout(next, Math.max(0, dur - elapsed) * 1000); }
+    else { elapsed += (performance.now() - t0) / 1000; clearTimeout(timer); }
+    playing = v;
+    const im = stage.querySelector('.frame:not(.out) img'); if (im) im.style.animationPlayState = v ? 'running' : 'paused';
+    $('ppIcon').innerHTML = v ? '<path d="M7 5h4v14H7zm6 0h4v14h-4z"/>' : '<path d="M7 4v16l13-8z"/>';
+    $('ppBtn').setAttribute('aria-label', v ? 'Pause' : 'Play');
+    tick();
+  }
+  let lastFocus = null;
+  function open(i, autoplay){
+    lastFocus = document.activeElement;
+    $('player').hidden = false; document.body.style.overflow = 'hidden';
+    playing = !!autoplay; show(i, true); setPlaying(!!autoplay);
+    $('closeBtn').focus();
+  }
+  function close(){
+    setPlaying(false); clearTimeout(timer); cancelAnimationFrame(raf);
+    $('player').hidden = true; document.body.style.overflow = '';
+    try { if (document.fullscreenElement) document.exitFullscreen(); } catch (e) {}
+    if (lastFocus) lastFocus.focus();
+  }
+  $('playBtn').addEventListener('click', function(){ open(0, true); });
+  $('heroImg').addEventListener('click', function(){ open(0, true); });
+  $('heroImg').addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(0, true); } });
+  $('closeBtn').addEventListener('click', close);
+  $('ppBtn').addEventListener('click', function(){ if (!playing && idx === S.length - 1 && elapsed >= S[idx].len * pace - 0.05) { show(0, true); } setPlaying(!playing); });
+  $('prevBtn').addEventListener('click', function(){ show(idx - 1, true); });
+  $('nextBtn').addEventListener('click', function(){ show(idx + 1, true); });
+  $('fsBtn').addEventListener('click', function(){ try { const p = $('player'); (document.fullscreenElement ? document.exitFullscreen() : p.requestFullscreen()).catch(function(){}); } catch (e) {} });
+  function setPace(v){ pace = v; $('paceFilm').setAttribute('aria-pressed', v === 1); $('paceSlow').setAttribute('aria-pressed', v === 2); }
+  $('paceFilm').addEventListener('click', function(){ setPace(1); });
+  $('paceSlow').addEventListener('click', function(){ setPace(2); });
+  document.addEventListener('keydown', function(e){
+    if ($('player').hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') show(idx + 1, true);
+    else if (e.key === 'ArrowLeft') show(idx - 1, true);
+    else if (e.key === ' ') { e.preventDefault(); setPlaying(!playing); }
+  });
+})();
+</script>
+
+</body>
+</html>

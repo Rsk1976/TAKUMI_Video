@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>The Friend Left Behind · Story B</title>
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Inter:wght@400;500;600&family=Noto+Sans+Tamil:wght@500;600&display=swap">
+<style>
+/* Layout: a screening room. Dark charcoal ground so the warm paper sketches glow. Hero with Play, then a grid of sketches by act; the player is a full-screen overlay. Deliberately single dark look. */
+:root{
+  --bg:#15161A; --panel:#1E2026; --fg:#EEEAE2; --muted:#A39E94; --line:#2E3038;
+  --maroon:#B23A48; --mustard:#D9A441; --red:#E5232F;
+  --display:"Archivo","Segoe UI",system-ui,sans-serif; --text:"Inter","Segoe UI",system-ui,sans-serif; --tamil:"Noto Sans Tamil","Nirmala UI",sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--text);font-size:15px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-block:36px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:center}
+.eyebrow{font:600 12px var(--text);letter-spacing:.14em;text-transform:uppercase;color:var(--mustard)}
+h1{font:800 clamp(32px,5vw,58px)/1.02 var(--display);margin:10px 0 14px;letter-spacing:-.02em;text-wrap:balance}
+.log{font-size:17px;color:var(--fg);max-width:56ch;margin:0}
+.log b{color:var(--mustard);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
+.play{font:700 17px var(--display);background:var(--maroon);color:#fff;border:0;border-radius:999px;padding:14px 26px 14px 22px;cursor:pointer;display:inline-flex;gap:10px;align-items:center}
+.play svg{width:18px;height:18px;fill:#fff}
+.play:hover{filter:brightness(1.1)}
+.pace{display:flex;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px}
+.pace button{font:600 13px var(--text);background:transparent;color:var(--muted);border:0;border-radius:999px;padding:7px 12px;cursor:pointer}
+.pace button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.meta{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.heroimg{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 30px 60px -20px #000;transform:rotate(1.2deg);cursor:pointer;max-width:100%}
+.heroimg img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.act{display:flex;flex-direction:column;gap:14px}
+.act header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;border-top:1px solid var(--line);padding-top:16px}
+.act h2{font:800 22px var(--display);margin:0}
+.act .af{color:var(--mustard);font-size:15px}
+.act .an{font:700 12px var(--text);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.tile{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:8px;min-width:0}
+.tile .pic{position:relative;aspect-ratio:16/9;border-radius:5px;overflow:hidden;background:var(--panel);transition:transform .25s ease, box-shadow .25s ease}
+.tile img{width:100%;height:100%;object-fit:cover;display:block}
+.tile:hover .pic,.tile:focus-visible .pic{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 30px -12px #000}
+.tile:focus-visible .pic{outline:2px solid var(--mustard);outline-offset:3px}
+.tile .num{position:absolute;left:8px;top:8px;background:rgba(15,16,20,.78);color:#fff;font:700 12px var(--text);padding:3px 7px;border-radius:4px;font-variant-numeric:tabular-nums}
+.tile .tsub{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 7px;background:linear-gradient(transparent,rgba(0,0,0,.82));display:flex;flex-direction:column;align-items:center;text-align:center;gap:1px}
+.tile .tsub p{margin:0;text-shadow:0 1px 3px #000;text-wrap:balance}
+.tile .tsub .ta{font:600 13px/1.4 var(--tamil);color:#fff}
+.tile .tsub .en{font:500 12px/1.35 var(--text);color:#F4E9C8}
+.tile .cap{font-size:14px;color:var(--fg);font-weight:600}
+.tile .sub{font-size:13px;color:var(--muted)}
+.cardgfx{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;background:#1B2A4A;color:#fff;font-family:var(--display);text-align:center;padding:10px}
+.cardgfx.todo{background:#2A2C33;border:2px dashed #555}
+.cardgfx.msg{gap:.6em;padding:6%}
+.cardgfx .cta{font:600 1em/1.5 var(--tamil);text-wrap:balance}
+.cardgfx.msg b{font-size:1.35em;line-height:1.2;text-wrap:balance;padding-bottom:.15em}
+.cardgfx .logo{font:800 .7em var(--display);letter-spacing:.22em;margin-top:.6em;opacity:.85}
+.frame .cardgfx{font-size:clamp(16px,2.6vw,34px)}
+.cardgfx s{opacity:.65;text-decoration-color:var(--red)}
+.cardgfx b{font-size:1.25em;border-bottom:3px solid var(--red)}
+footer{color:var(--muted);font-size:13px}
+
+/* Player */
+.player{position:fixed;inset:0;z-index:50;background:#0B0B0D;display:grid;grid-template-rows:auto 1fr auto}
+.ptop{display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));color:var(--muted);font-size:13px}
+.ptop .pact{color:var(--fg);font-weight:600}
+.ptop .feelbadge{color:var(--mustard)}
+.ptop .sp{margin-left:auto}
+.ibtn{all:unset;cursor:pointer;color:var(--fg);width:38px;height:38px;display:grid;place-items:center;border-radius:50%}
+.ibtn:hover,.ibtn:focus-visible{background:#ffffff1a}
+.ibtn svg{width:20px;height:20px;fill:currentColor}
+.stage{position:relative;overflow:hidden;display:grid;place-items:center;min-height:0}
+.frame{position:absolute;inset:0;display:grid;place-items:center;padding:0 max(16px,env(safe-area-inset-left,0px))}
+.frame .box{position:relative;width:min(100%,calc((100vh - 190px)*16/9));aspect-ratio:16/9;overflow:hidden;border-radius:4px;box-shadow:0 30px 80px -20px #000;background:#000}
+.frame img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center}
+.frame.in{animation:pop .55s cubic-bezier(.2,.8,.2,1) both}
+.frame.out{animation:fade .45s ease both}
+@keyframes pop{from{opacity:0;transform:scale(.9) translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:1}to{opacity:0}}
+@keyframes kb1{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.13) translate(-2%,-1.5%)}}
+@keyframes kb2{from{transform:scale(1.14) translate(2%,1%)}to{transform:scale(1.03) translate(0,0)}}
+@keyframes kb3{from{transform:scale(1.04) translate(-2%,0)}to{transform:scale(1.12) translate(2%,-1%)}}
+.subs{position:absolute;left:0;right:0;bottom:14px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;padding:0 16px;pointer-events:none}
+.subs p{margin:0;text-shadow:0 2px 6px #000,0 0 2px #000;max-width:60ch}
+.subs .ta{font:600 clamp(16px,2.2vw,24px)/1.45 var(--tamil);color:#fff}
+.subs .en{font:500 clamp(13px,1.6vw,18px)/1.4 var(--text);color:#F4E9C8}
+.subs.show p{animation:pop .5s .25s both}
+.pbot{padding:10px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:8px}
+.track{display:flex;gap:2px;height:6px;cursor:pointer}
+.track i{display:block;height:100%;background:#ffffff26;border-radius:2px;position:relative;overflow:hidden}
+.track i b{position:absolute;inset:0 auto 0 0;width:0;background:var(--maroon)}
+.track i.done b{width:100%}
+.ctrls{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.ctrls .what{margin-left:10px;color:var(--fg);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.ctrls .tc{white-space:nowrap}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.heroimg{transform:none}.ctrls .what{display:none}}
+@media (prefers-reduced-motion:reduce){.frame.in,.frame.out,.subs.show p{animation:none}.frame img{animation:none!important}.tile .pic{transition:none}}
+.backlink{color:var(--muted);font-size:14px;text-decoration:none;align-self:flex-start}.backlink:hover{color:var(--fg)}
+</style>
+
+<div class="wrap" id="page">
+  <a class="backlink" href="../">← Both storyboards</a>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Takumi Motion Controls · Sketch storyboard · Story B</div>
+      <h1>The Friend Left Behind</h1>
+      <p class="log">Arun and his best friend Karthik share a city flat and the same grind. Arun goes home to a <b>world-class lab in Tenkasi</b>; Karthik stays. Every lunch with Paati, every waterfall and every starry night reaches Karthik in colour on a grey phone call, and each one hurts a little more. Then the doors open <b>for him too</b>.</p>
+      <div class="cta">
+        <button class="play" id="playBtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Play the storyboard</button>
+        <div class="pace" role="group" aria-label="Pace">
+          <button type="button" id="paceFilm" aria-pressed="true">Film pace</button>
+          <button type="button" id="paceSlow" aria-pressed="false">Slow ×2</button>
+        </div>
+      </div>
+      <p class="meta" id="metaLine"></p>
+    </div>
+    <div class="heroimg" id="heroImg" role="button" tabindex="0" aria-label="Play from the first shot"><img src="img/B06.jpg" alt="The lab’s glass doors slide open onto green paddy fields as Arun steps out"></div>
+  </section>
+  <div id="acts"></div>
+  <footer>Pencil and watercolour sketches made in Google Nano Banana from Claude’s prompts. Karthik’s city stays grey; Arun’s Tenkasi life is in colour, and on a call only the phone screen carries it. Use ← → to step, Space to pause, Esc to close.</footer>
+</div>
+
+<div class="player" id="player" hidden role="dialog" aria-modal="true" aria-label="Storyboard player">
+  <div class="ptop">
+    <span class="pact" id="pAct"></span><span id="pShot"></span><span class="feelbadge" id="pFeel"></span>
+    <span class="sp"></span>
+    <button class="ibtn" id="fsBtn" type="button" aria-label="Full screen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5v2H6v3zm10-5h6v5h-2V6h-4zM6 15v3h3v2H4v-5zm12 3v-3h2v5h-5v-2z"/></svg></button>
+    <button class="ibtn" id="closeBtn" type="button" aria-label="Close player"><svg viewBox="0 0 24 24"><path d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6L19 6.4 17.6 5 12 10.6z"/></svg></button>
+  </div>
+  <div class="stage" id="stage"></div>
+  <div class="pbot">
+    <div class="track" id="track" aria-hidden="true"></div>
+    <div class="ctrls">
+      <button class="ibtn" id="prevBtn" type="button" aria-label="Previous shot"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zm3.5 7L18 5v14z"/></svg></button>
+      <button class="ibtn" id="ppBtn" type="button" aria-label="Pause"><svg viewBox="0 0 24 24" id="ppIcon"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button>
+      <button class="ibtn" id="nextBtn" type="button" aria-label="Next shot"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM6 5l8.5 7L6 19z"/></svg></button>
+      <span class="tc" id="tc"></span>
+      <span class="what" id="pWhat"></span>
+    </div>
+  </div>
+</div>
+
+<script id="data" type="application/json">{"parts": [{"id": "1", "name": "Brothers in the city", "feel": "Two friends, the same grind"}, {"id": "2", "name": "The doors open", "feel": "Arun's first day: wonder"}, {"id": "3", "name": "Every call hurts a little more", "feel": "Arun's joy, Karthik's growing envy"}, {"id": "4", "name": "The night it breaks", "feel": "Loneliness, then a decision"}, {"id": "5", "name": "The doors open for him too", "feel": "Reunion: he is home too"}, {"id": "6", "name": "The message", "feel": "Come back"}], "shots": [{"id": "K1", "part": "1", "len": 2.5, "inten": 6, "feel": "Brothers in misery", "what": "2 AM in the city office. Arun and Karthik slump side by side, sharing one cup of tea.", "cam": "Medium two-shot, static", "ta": "இன்னும் ஒரு நைட் ஷிஃப்ட்டு… இன்னும் ஒரு வருஷம்.", "en": "One more night shift… one more year.", "img": "img/K1.jpg", "start": 0.0}, {"id": "B00", "part": "1", "len": 2.5, "inten": 6, "feel": "Homesick", "what": "Two years ago. Arun is squeezed into a city bus stuck in night traffic, thumb resting on a photo of the paddy fields at home.", "cam": "Close, through the crowd", "ta": "உலகத் தரமான வேலைக்காகத் தான் ஊரை விட்டு வந்தோம்.", "en": "We left home for world-class jobs.", "img": "img/B00.jpg", "start": 2.5}, {"id": "K2", "part": "1", "len": 3, "inten": 6, "feel": "Hope meets disbelief", "what": "Their tiny flat. Arun shows Karthik the Takumi offer; Karthik, eating noodles from the pot, laughs it off.", "cam": "Medium, static", "ta": "தென்காசியா? டேய், காமெடி பண்ணாதே!", "en": "Tenkasi? Dude, stop joking!", "img": "img/K2.jpg", "start": 5.0}, {"id": "K3", "part": "1", "len": 3.5, "inten": 8, "feel": "Goodbye between brothers", "what": "Night bus stand. Karthik hugs Arun goodbye, smiling bravely with wet eyes.", "cam": "Medium close, static", "ta": "நீ போ. நிஜமான வேலை எல்லாம் இங்க தான்.", "en": "You go. The real jobs are all here.", "img": "img/K3.jpg", "start": 8.0}, {"id": "B01", "part": "2", "len": 2, "inten": 5, "feel": "World-class precision", "what": "Today. A dark, high-tech test lab; Arun tunes a motor-controller board, the oscilloscope lighting his face.", "cam": "Medium, slow push-in", "ta": "முதல் நாள். உலகத் தரமான லேப்.", "en": "Day one. A world-class lab.", "img": "img/B01.jpg", "start": 11.5}, {"id": "B02", "part": "2", "len": 1.5, "inten": 5, "feel": "Cutting-edge engineering", "what": "An electric motor spins on the dynamometer; his hand turns the control dial.", "cam": "Close-up, static", "ta": "ஒவ்வொரு மோட்டாரும்… துல்லியமா.", "en": "Every motor… tested to perfection.", "img": "img/B02.jpg", "start": 13.5}, {"id": "B03", "part": "2", "len": 1.5, "inten": 5, "feel": "This could be anywhere in the world", "what": "An aircraft wing with its electric motor and propeller on a test stand; two engineers check it.", "cam": "Wide, static", "ta": "இது உலகத்துல எங்க வேணும்னாலும் இருக்கலாம்.", "en": "This could be anywhere in the world.", "img": "img/B03.jpg", "start": 15.0}, {"id": "B05", "part": "2", "len": 2, "inten": 6, "feel": "Anticipation", "what": "Arun walks down a long dark corridor toward tall glass doors; warm light glows through the gap.", "cam": "Follows behind him", "ta": "இந்தக் கதவுக்கு வெளியே…", "en": "Outside these doors…", "img": "img/B05.jpg", "start": 16.5}, {"id": "B06", "part": "2", "len": 3.5, "inten": 9, "feel": "The reveal: wonder and peace", "what": "The glass doors slide open onto endless green paddy fields and palms. He stops and breathes in.", "cam": "From behind, static", "ta": "…எல்லாமே இங்கேயே இருக்கு.", "en": "…everything is already here.", "img": "img/B06.jpg", "start": 18.5}, {"id": "B07", "part": "2", "len": 2, "inten": 8, "feel": "World-class, in the middle of green", "what": "Wide: the white-and-glass lab sits small among the fields, the Ghats behind; Arun walks out along a path.", "cam": "Very wide, drone drifts back", "ta": "சுத்தி பசுமை. பின்னாடி மலை.", "en": "Green all around. Mountains behind.", "img": "img/B07.jpg", "start": 22.0}, {"id": "C1", "part": "3", "len": 3, "inten": 7, "feel": "Disbelief, and the first pinch of envy", "what": "Karthik, stuck in a smoggy jam, stares at his phone: on the screen, in colour, Arun eats lunch at home while Paati serves him.", "cam": "Close, over the phone", "ta": "மதியம் பாட்டி சாப்பாடா? செவ்வாய்க்கிழமையிலேயா?!", "en": "Lunch with Paati? On a Tuesday?!", "img": "img/C1.jpg", "start": 24.0}, {"id": "B12", "part": "3", "len": 3, "inten": 10, "feel": "Love: home for lunch on a workday", "what": "1 PM. Office ID still around his neck, Arun eats from a banana leaf as Paati serves him hot rice; the lab is visible across the fields.", "cam": "Medium, static", "ta": "கார்த்திக்கையும் வரச் சொல்லுப்பா.", "en": "Tell Karthik to come too, dear.", "img": "img/B12.jpg", "start": 27.0}, {"id": "B08d", "part": "3", "len": 2.5, "inten": 7, "feel": "The only traffic jam here", "what": "He waits, grinning, as a long line of ducks waddles across the road.", "cam": "Side-on, static", "ta": "இங்க டிராஃபிக் ஜாம்… இது மட்டும் தான்.", "en": "The only traffic jam here.", "img": "img/B08d.jpg", "start": 30.0}, {"id": "B09b", "part": "3", "len": 2, "inten": 7, "feel": "Charm and delight", "what": "An elder walks home from the market; the follow-me robot carries her vegetables, a puppy trots behind it, children point and laugh.", "cam": "Medium, tracks left", "ta": "சந்தையிலிருந்து வீட்டுக்கு… ரோபோ துணையோட.", "en": "Home from the market… with a robot for company.", "img": "img/B09b.jpg", "start": 32.5}, {"id": "B10", "part": "3", "len": 2, "inten": 7, "feel": "Independence for elders", "what": "Paati rides her Takumi scooter down the temple street, chatting with two old friends on the veranda.", "cam": "Tracks with her", "ta": "பாட்டிக்கு… மறுபடியும் சுதந்திரம்.", "en": "Paati… free again.", "img": "img/B10.jpg", "start": 34.5}, {"id": "B13d", "part": "3", "len": 3, "inten": 8, "feel": "Envy and humour: I want that", "what": "His old city colleague video-calls from a jammed flyover, horrified; Arun waves from the waterfall.", "cam": "Over the phone, static", "ta": "டேய்… நீ எங்கடா இருக்கே?!", "en": "Dude… where ARE you?!", "img": "img/B13d.jpg", "start": 36.5}, {"id": "B13", "part": "3", "len": 2.5, "inten": 9, "feel": "Belonging", "what": "Rooftop dinner at twilight with Paati, his parents and his little niece.", "cam": "Wide, slow push-in", "ta": "உன் ஃப்ரெண்ட் எப்போ வருவான்?", "en": "When is your friend coming?", "img": "img/B13.jpg", "start": 39.5}, {"id": "C2", "part": "3", "len": 3, "inten": 8, "feel": "Longing: he isn't laughing any more", "what": "A starless city rooftop. On Karthik's phone, in colour: Arun under a sky full of stars.", "cam": "Medium, static", "ta": "இங்க வானம் நிறைய நட்சத்திரம்டா.", "en": "The sky here is full of stars.", "img": "img/C2.jpg", "start": 42.0}, {"id": "C2b", "part": "3", "len": 2, "inten": 8, "feel": "Arun’s side of the call", "what": "Arun on the roof under the Milky Way, the Takumi lab glowing across the fields; Paati calls him in from the doorway.", "cam": "Wide, static", "ta": "…நீயும் பார்க்கணும்.", "en": "…you should see it too.", "img": "img/C2b.jpg", "start": 45.0}, {"id": "K4", "part": "4", "len": 3.5, "inten": 9, "feel": "Loneliness: the breaking point", "what": "2 AM, the flat half empty. Karthik alone, face in his hands; a missed call from his mother on the floor.", "cam": "Wide, static", "ta": "அம்மா மூணு தடவை கூப்பிட்டாங்க… நான் மீட்டிங்ல இருந்தேன்.", "en": "Amma called three times… I was in a meeting.", "img": "img/K4.jpg", "start": 47.0}, {"id": "K5", "part": "4", "len": 2.5, "inten": 8, "feel": "The decision", "what": "Over his shoulder: he applies to Takumi; beside the laptop, a photo of the two friends as students.", "cam": "Close-up, slow push-in", "ta": "சரி டா… நீ ஜெயிச்சுட்ட.", "en": "Okay… you win.", "img": "img/K5.jpg", "start": 50.5}, {"id": "K6", "part": "5", "len": 4, "inten": 10, "feel": "Joy: the doors open for him too", "what": "The lab doors slide open onto the green. Karthik steps out into the light and colour floods over him; Arun waits with open arms.", "cam": "From behind, then reverse", "ta": "சொன்னேன்ல?", "en": "Told you.", "img": "img/K6.jpg", "start": 53.0}, {"id": "K7", "part": "5", "len": 3.5, "inten": 10, "feel": "He is home too", "what": "Paati serves Karthik lunch, her hand on his head. Arun laughs beside them.", "cam": "Medium, static", "ta": "இனிமே தினமும் இங்க தான் சாப்பாடு.", "en": "From now on, you eat here every day.", "img": "img/K7.jpg", "start": 57.0}, {"id": "BC1", "part": "6", "len": 2.5, "inten": 8, "feel": "The promise", "what": "Card: Everything you want is here.", "cam": "Card", "ta": "", "en": "", "cta": "நீங்க தேடுறது எல்லாமே இங்கேயே இருக்கு.", "cen": "Everything you want is here.", "card": true, "logo": false, "img": null, "start": 60.5}, {"id": "BC2", "part": "6", "len": 3, "inten": 8, "feel": "Minus the hassle", "what": "Card: Minus the traffic. Minus the pollution. Minus the hassle.", "cam": "Card", "ta": "", "en": "", "cta": "டிராஃபிக் இல்லாம. மாசு இல்லாம. அலைச்சல் இல்லாம.", "cen": "Minus the traffic. Minus the pollution. Minus the hassle.", "card": true, "logo": false, "img": null, "start": 63.0}, {"id": "BC3", "part": "6", "len": 3, "inten": 9, "feel": "Come back", "what": "Card: Come back to your roots.", "cam": "Card · Takumi logo", "ta": "", "en": "", "cta": "உங்கள் வேர்களுக்குத் திரும்புங்கள்.", "cen": "Come back to your roots.", "card": true, "logo": true, "img": null, "start": 66.0}], "total": 69.0}</script>
+<script>
+(function(){
+  const D = JSON.parse(document.getElementById('data').textContent);
+  const S = D.shots, P = {}; D.parts.forEach(function(p){ P[p.id] = p; });
+  const $ = function(id){ return document.getElementById(id); };
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let pace = 1, idx = 0, playing = false, timer = null, t0 = 0, elapsed = 0, raf = null;
+  function fmt(s){ s = Math.max(0, s); return Math.floor(s/60) + ':' + String(Math.floor(s%60)).padStart(2,'0'); }
+  $('metaLine').textContent = S.length + ' shots · ' + fmt(D.total) + ' at film pace · Tamil + English subtitle on every shot';
+
+  function todoHTML(s){ return '<div class="cardgfx todo"><span>Shot ' + s.id + '</span><b>Image to come</b><span style="font-size:.8em;opacity:.8;max-width:40ch">' + s.what.replace(/</g,'&lt;') + '</span></div>'; }
+  function esc(x){ return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function cardHTML(s){ return '<div class="cardgfx msg"><span class="cta" lang="ta">' + esc(s.cta) + '</span><b>' + esc(s.cen) + '</b>' + (s.logo ? '<span class="logo">TAKUMI MOTION CONTROLS</span>' : '') + '</div>'; }
+
+  // grid
+  const acts = $('acts');
+  D.parts.forEach(function(p){
+    const list = S.map(function(s, i){ return [s, i]; }).filter(function(x){ return x[0].part === p.id; });
+    if (!list.length) return;
+    const sec = document.createElement('section'); sec.className = 'act';
+    const h = document.createElement('header');
+    h.innerHTML = '<span class="an">Part ' + p.id + '</span>';
+    const h2 = document.createElement('h2'); h2.textContent = p.name; h.append(h2);
+    const af = document.createElement('span'); af.className = 'af'; af.textContent = p.feel; h.append(af);
+    sec.append(h);
+    const g = document.createElement('div'); g.className = 'grid';
+    list.forEach(function(x){
+      const s = x[0], i = x[1];
+      const b = document.createElement('button'); b.className = 'tile'; b.type = 'button'; b.id = 'tile-' + s.id;
+      b.setAttribute('aria-label', 'Open shot ' + s.id + ': ' + s.feel);
+      const pic = document.createElement('div'); pic.className = 'pic';
+      if (s.img) { const im = document.createElement('img'); im.src = s.img; im.alt = s.what; im.loading = 'lazy'; pic.append(im); }
+      else pic.innerHTML = s.card ? cardHTML(s) : todoHTML(s);
+      const n = document.createElement('span'); n.className = 'num'; n.textContent = s.id + ' · ' + fmt(s.start); pic.append(n);
+      if (s.ta || s.en) {
+        const ts = document.createElement('div'); ts.className = 'tsub';
+        if (s.ta) { const a = document.createElement('p'); a.className = 'ta'; a.lang = 'ta'; a.textContent = s.ta; ts.append(a); }
+        if (s.en) { const e = document.createElement('p'); e.className = 'en'; e.textContent = s.en; ts.append(e); }
+        pic.append(ts);
+      }
+      const c = document.createElement('span'); c.className = 'cap'; c.textContent = s.feel;
+      const su = document.createElement('span'); su.className = 'sub'; su.textContent = s.what;
+      b.append(pic, c, su);
+      b.addEventListener('click', function(){ open(i, false); });
+      g.append(b);
+    });
+    sec.append(g); acts.append(sec);
+  });
+
+  // track
+  const track = $('track');
+  S.forEach(function(s, i){
+    const seg = document.createElement('i'); seg.style.flex = s.len; seg.append(document.createElement('b'));
+    seg.title = s.id + ' · ' + s.feel;
+    seg.addEventListener('click', function(){ show(i, true); });
+    track.append(seg);
+  });
+
+  const stage = $('stage');
+  let kb = 0;
+  function show(i, animate){
+    idx = (i + S.length) % S.length;
+    const s = S[idx], dur = s.len * pace;
+    const old = stage.querySelector('.frame:not(.out)');
+    if (old) { old.classList.remove('in'); old.classList.add('out'); setTimeout(function(){ old.remove(); }, 460); }
+    const f = document.createElement('div'); f.className = 'frame in';
+    const box = document.createElement('div'); box.className = 'box';
+    if (s.img) {
+      const im = document.createElement('img'); im.src = s.img; im.alt = s.what;
+      if (!reduce) { kb = (kb % 3) + 1; im.style.animation = 'kb' + kb + ' ' + (dur + 0.6) + 's linear both'; im.style.animationPlayState = playing ? 'running' : 'paused'; }
+      box.append(im);
+    } else box.innerHTML = s.card ? cardHTML(s) : todoHTML(s);
+    const subs = document.createElement('div'); subs.className = 'subs show';
+    if (s.ta) { const a = document.createElement('p'); a.className = 'ta'; a.lang = 'ta'; a.textContent = s.ta; subs.append(a); }
+    if (s.en) { const e = document.createElement('p'); e.className = 'en'; e.textContent = s.en; subs.append(e); }
+    box.append(subs); f.append(box); stage.append(f);
+    $('pAct').textContent = 'Part ' + s.part + ' · ' + P[s.part].name;
+    $('pShot').textContent = '· Shot ' + s.id;
+    $('pFeel').textContent = '· ' + s.feel;
+    $('pWhat').textContent = s.what;
+    Array.prototype.forEach.call(track.children, function(seg, k){ seg.classList.toggle('done', k < idx); seg.firstChild.style.width = k < idx ? '100%' : '0'; });
+    elapsed = 0; t0 = performance.now();
+    clearTimeout(timer);
+    if (playing) timer = setTimeout(next, dur * 1000);
+    tick();
+  }
+  function tick(){
+    cancelAnimationFrame(raf);
+    const s = S[idx], dur = s.len * pace;
+    const e = playing ? elapsed + (performance.now() - t0) / 1000 : elapsed;
+    track.children[idx].firstChild.style.width = Math.min(100, 100 * e / dur) + '%';
+    $('tc').textContent = fmt(s.start + Math.min(e / pace, s.len)) + ' / ' + fmt(D.total);
+    if (playing) raf = requestAnimationFrame(tick);
+  }
+  function next(){ if (idx === S.length - 1) { setPlaying(false); return; } show(idx + 1, true); }
+  function setPlaying(v){
+    if (v === playing) return;
+    const s = S[idx], dur = s.len * pace;
+    if (v) { t0 = performance.now(); timer = setTimeout(next, Math.max(0, dur - elapsed) * 1000); }
+    else { elapsed += (performance.now() - t0) / 1000; clearTimeout(timer); }
+    playing = v;
+    const im = stage.querySelector('.frame:not(.out) img'); if (im) im.style.animationPlayState = v ? 'running' : 'paused';
+    $('ppIcon').innerHTML = v ? '<path d="M7 5h4v14H7zm6 0h4v14h-4z"/>' : '<path d="M7 4v16l13-8z"/>';
+    $('ppBtn').setAttribute('aria-label', v ? 'Pause' : 'Play');
+    tick();
+  }
+  let lastFocus = null;
+  function open(i, autoplay){
+    lastFocus = document.activeElement;
+    $('player').hidden = false; document.body.style.overflow = 'hidden';
+    playing = !!autoplay; show(i, true); setPlaying(!!autoplay);
+    $('closeBtn').focus();
+  }
+  function close(){
+    setPlaying(false); clearTimeout(timer); cancelAnimationFrame(raf);
+    $('player').hidden = true; document.body.style.overflow = '';
+    try { if (document.fullscreenElement) document.exitFullscreen(); } catch (e) {}
+    if (lastFocus) lastFocus.focus();
+  }
+  $('playBtn').addEventListener('click', function(){ open(0, true); });
+  $('heroImg').addEventListener('click', function(){ open(0, true); });
+  $('heroImg').addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(0, true); } });
+  $('closeBtn').addEventListener('click', close);
+  $('ppBtn').addEventListener('click', function(){ if (!playing && idx === S.length - 1 && elapsed >= S[idx].len * pace - 0.05) { show(0, true); } setPlaying(!playing); });
+  $('prevBtn').addEventListener('click', function(){ show(idx - 1, true); });
+  $('nextBtn').addEventListener('click', function(){ show(idx + 1, true); });
+  $('fsBtn').addEventListener('click', function(){ try { const p = $('player'); (document.fullscreenElement ? document.exitFullscreen() : p.requestFullscreen()).catch(function(){}); } catch (e) {} });
+  function setPace(v){ pace = v; $('paceFilm').setAttribute('aria-pressed', v === 1); $('paceSlow').setAttribute('aria-pressed', v === 2); }
+  $('paceFilm').addEventListener('click', function(){ setPace(1); });
+  $('paceSlow').addEventListener('click', function(){ setPace(2); });
+  document.addEventListener('keydown', function(e){
+    if ($('player').hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') show(idx + 1, true);
+    else if (e.key === 'ArrowLeft') show(idx - 1, true);
+    else if (e.key === ' ') { e.preventDefault(); setPlaying(!playing); }
+  });
+})();
+</script>
+
+</body>
+</html>

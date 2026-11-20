@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Takumi Film Storyboards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: the same dark screening room as the two players; two large poster cards, one per story. */
+:root{
+  --bg:#15161A; --panel:#1E2026; --fg:#EEEAE2; --muted:#A39E94; --line:#2E3038;
+  --maroon:#B23A48; --mustard:#D9A441;
+  --display:"Archivo","Segoe UI",system-ui,sans-serif; --text:"Inter","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--text);font-size:16px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:48px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:36px}
+.eyebrow{font:600 12px var(--text);letter-spacing:.14em;text-transform:uppercase;color:var(--mustard)}
+h1{font:800 clamp(32px,5vw,56px)/1.03 var(--display);margin:10px 0 12px;letter-spacing:-.02em;text-wrap:balance}
+.intro{margin:0;color:var(--muted);max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px}
+.card{display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 14px 20px;min-width:0;transition:transform .25s ease,border-color .25s ease}
+.card:hover,.card:focus-visible{transform:translateY(-3px);border-color:var(--mustard)}
+.card:focus-visible{outline:2px solid var(--mustard);outline-offset:3px}
+.pic{aspect-ratio:16/9;border-radius:6px;overflow:hidden;max-width:100%}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+.tag{font:700 12px var(--text);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.card h2{font:800 clamp(24px,3vw,32px)/1.1 var(--display);margin:0;text-wrap:balance}
+.card p{margin:0;color:var(--fg);opacity:.9}
+.meta{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.go{font:700 15px var(--display);color:#fff;background:var(--maroon);border-radius:999px;padding:10px 20px;align-self:flex-start}
+footer{color:var(--muted);font-size:13px;max-width:70ch}
+@media (prefers-reduced-motion:reduce){.card{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Takumi Motion Controls · Recruitment film · Storyboards</div>
+    <h1>Come Back to Your Roots</h1>
+    <p class="intro">Two story ideas for a short recruitment film, drawn as pencil storyboards. Open one and press <b>Play</b>: each sketch pops up in film order with its Tamil and English subtitle.</p>
+  </header>
+
+  <main class="grid">
+    <a class="card" href="story-a/">
+      <div class="pic"><img src="story-a/img/13.jpg" alt="Paati holds Arun's face in her hands on the veranda, their foreheads touching"></div>
+      <span class="tag">Story A</span>
+      <h2>Come Back to Your Roots</h2>
+      <p>As a boy, Arun flew a toy plane with his Paati. Years later he works three hours away and misses every festival, and the night she falls. A Takumi e-plane makes it fifteen minutes, so he goes home every day, then joins the team that builds it.</p>
+      <span class="meta">45 shots · about 1 min 54 s</span>
+      <span class="go">Open Story A</span>
+    </a>
+    <a class="card" href="story-b/">
+      <div class="pic"><img src="story-b/img/K6.jpg" alt="The lab doors open onto green fields as Karthik steps out and Arun waits with open arms"></div>
+      <span class="tag">Story B</span>
+      <h2>The Friend Left Behind</h2>
+      <p>Arun and his best friend Karthik share the city grind. Arun goes home to a world-class lab in Tenkasi; Karthik stays and watches Arun's life on video calls until it breaks him. Then the doors open for him too.</p>
+      <span class="meta">26 shots · about 1 min 9 s</span>
+      <span class="go">Open Story B</span>
+    </a>
+  </main>
+
+  <footer>Draft storyboards for internal review. Sketches made with Google Gemini from Claude's prompts. Subtitles are drafts.</footer>
+</div>
+</body>
+</html>
